@@ -42,9 +42,9 @@ for i in range(0, len(listaLinee)-1):
             AdiList[j].append(i)
             endPointTouched=1
         if startPointTouched==0:
-            points.append([start0x,start0y])
+            points.append((start0x,start0y))
         if endPointTouched==0:
-            points.append([end0x,end0y])
+            points.append((end0x,end0y))
 
 for i in range(0, len(listaLinee)):
     print AdiList[i]
