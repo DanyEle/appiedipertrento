@@ -1,2 +1,1 @@
-Ciao ragazzi, questa è la nostra repository github, dove possiamo condividere
-il codice della nostra App!
+Welcome to our App repository. Here you can find all material used for creating our Android Application. We are 4 students from Liceo Scientifico Galileo Galilei of Trento and we do hope somebody might find our application useful and eventually improve it. The license for this project can be found in the "license" text file. 
