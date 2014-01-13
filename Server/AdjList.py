@@ -10,25 +10,25 @@ lyr = ds.GetLayer()
 
 lyr.ResetReading()
 
-listaLinee = []
+linesList = []
 
 points = []
 AdiList = []
 
 for feat in lyr:
-    listaLinee.append(feat)
+    linesList.append(feat)
     AdiList.append([])
 
-for i in range(0, len(listaLinee)-1):
-    geom0 = listaLinee[i].GetGeometryRef()
+for i in range(0, len(linesList)-1):
+    geom0 = linesList[i].GetGeometryRef()
     start0x = geom0.GetX(0)
     start0y = geom0.GetY(0)
     end0x = geom0.GetX(geom0.GetPointCount()-1)
     end0y = geom0.GetY(geom0.GetPointCount()-1)
     startPointTouched=0
     endPointTouched=0
-    for j in range(i+1, len(listaLinee)):
-        geom1 = listaLinee[j].GetGeometryRef()
+    for j in range(i+1, len(linesList)):
+        geom1 = linesList[j].GetGeometryRef()
         start1x = geom1.GetX(0)
         start1y = geom1.GetY(0)
         end1x = geom1.GetX(geom1.GetPointCount()-1)
@@ -46,7 +46,7 @@ for i in range(0, len(listaLinee)-1):
         if endPointTouched==0:
             points.append((end0x,end0y))
 
-for i in range(0, len(listaLinee)):
+for i in range(0, len(linesList)):
     print AdiList[i]
 
 ds = None
