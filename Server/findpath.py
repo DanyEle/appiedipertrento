@@ -32,9 +32,9 @@ def findpath(adilist,roads,analizedPoint,endPoint,T,maxLength):
 				locl+=edge[2] # longer path
 				locP+=edge[3] # more polluted path
 				if analizedPoint==edge[0]:
-					findpath(adilist,roads,edge[1],endPoint,T)
+					findpath(adilist,roads,edge[1],endPoint,T,maxLength)
 				if analizedPoint==edge[1]:
-					findpath(adilist,roads,edge[0],endPoint,T)
+					findpath(adilist,roads,edge[0],endPoint,T,maxLength)
 				locList.pop()
 				locl-=edge[2]
 				locP-=edge[3]
