@@ -1,7 +1,23 @@
 import sys
 import ogr
 
-ds = ogr.Open( "territorio_line.shp" )
+#This function inserts the point (x,y) in pointsList if not already in it. It returns the position in this list.
+#Note that this function hasn't been tested yet
+def insertPoint(x, y, edgeID, pointsList, closeEdgesList):
+	i = 0
+	ID = -1
+	while(i < len(pointsList) and (ID == -1)):
+		if pointsList[i][0]==x and pointsList[i][1]==y:
+			ID = i
+		i = i+1
+	if ID == -1:
+		ID = len(pointsList)
+		pointsList.append([x,y])
+		closeEdgesList.append([])
+	closeEdgesList[ID].append(edgeID)
+	return ID
+
+ds = ogr.Open( "grafo.shp" )
 if ds is None:
     print "Open failed.\n"
     sys.exit( 1 )
@@ -13,20 +29,22 @@ lyr.ResetReading()
 linesList = []
 
 points = []
+closeEdges = [] # formatted for findpath's "adilist"
+edges = [] # formatted for findpath's "roads". The filling has not been implemented yet.
 AdiList = []
 
 for feat in lyr:
     linesList.append(feat)
     AdiList.append([])
+    edges.append([])
 
-for i in range(0, len(linesList)-1):
+for i in range(0, len(linesList)):
     geom0 = linesList[i].GetGeometryRef()
     start0x = geom0.GetX(0)
     start0y = geom0.GetY(0)
     end0x = geom0.GetX(geom0.GetPointCount()-1)
     end0y = geom0.GetY(geom0.GetPointCount()-1)
-    startPointTouched=0
-    endPointTouched=0
+    # here edges should be filled
     for j in range(i+1, len(linesList)):
         geom1 = linesList[j].GetGeometryRef()
         start1x = geom1.GetX(0)
@@ -36,17 +54,8 @@ for i in range(0, len(linesList)-1):
         if ((start0x==start1x and start0y==start1y) or (start0x==end1x and start0y==end1y)):
             AdiList[i].append(j)
             AdiList[j].append(i)
-            startPointTouched=1
         if (end0x==start1x and end0y==start1y) or (end0x==end1x and end0y==end1y):
             AdiList[i].append(j)
             AdiList[j].append(i)
-            endPointTouched=1
-        if startPointTouched==0:
-            points.append((start0x,start0y))
-        if endPointTouched==0:
-            points.append((end0x,end0y))
-
-for i in range(0, len(linesList)):
-    print AdiList[i]
 
 ds = None
