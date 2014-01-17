@@ -15,7 +15,7 @@ def findpath(adilist,roads,analizedPoint,endPoint,T,maxLength):
 	global locl
 	global locP
 	global locList
-	# finalPoint's memorized list's update (the memorized list is updated when locList is better)
+	# finalList's memorized list's update (the memorized list is updated when locList is better)
 	if analizedPoint==endPoint:
 		if (abs(locl-T)*locP<abs(l-T)*P) or P==0:
 			l=locl
