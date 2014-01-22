@@ -1,6 +1,7 @@
 import sys
 import ogr
 from findpath_edges import findpath
+from dijkstra import dijkstra
 
 ds = ogr.Open( "grafo_random.shp" )
 if ds is None:
