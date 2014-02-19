@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="C:\Users\Pietro\Documents\AndroidStudioProjects\APPiediPerTrento\libraries\SDHelper\res" />
+        <source path="C:\Users\Pietro\Documents\AndroidStudioProjects\APPiediPerTrento\libraries\SDHelper\build\res\rs\release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="C:\Users\Pietro\Documents\AndroidStudioProjects\APPiediPerTrento\libraries\SDHelper\src\release\res" />
+    </dataSet>
+
+</merger>

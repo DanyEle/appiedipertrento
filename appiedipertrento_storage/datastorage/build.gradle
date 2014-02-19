@@ -1,0 +1,29 @@
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '19.0.0'
+    defaultConfig {
+        minSdkVersion 7
+        targetSdkVersion 19
+    }
+    signingConfigs {
+        Pietro {
+            keyAlias 'APPiediPerTrento'
+            keyPassword 'Ptr95Admin!'
+            storeFile file($/C:\Users\Pietro\PietroRosatti.jks/$)
+            storePassword 'Ptr95Admin!'
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.Pietro
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:+'
+    compile project(':libraries:SDHelper')
+    compile files('src/main/libs/SDAndroidLib-1.2.0.jar')
+}

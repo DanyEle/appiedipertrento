@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="C:\Users\Pietro\Documents\AndroidStudioProjects\DataStorage\libraries\SDHelper\res" />
+        <source path="C:\Users\Pietro\Documents\AndroidStudioProjects\DataStorage\libraries\SDHelper\build\res\rs\release" />
+        <source path="C:\Users\Pietro\Documents\AndroidStudioProjects\DataStorage\libraries\SDHelper\build\res\generated\release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="C:\Users\Pietro\Documents\AndroidStudioProjects\DataStorage\libraries\SDHelper\src\release\res" />
+    </dataSet>
+
+</merger>
