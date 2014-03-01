@@ -4,3 +4,4 @@ To get the APP goes to:
 https://github.com/Pietro95/APPiediPerTrento
 
 Tutorial:
+http://www.youtube.com/watch?v=zcm-ordq6dw
