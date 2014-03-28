@@ -8,7 +8,7 @@ def rotate(l):
 	return ris
 
 #edges contains the list of the edges. Each edge is a list of three elements: the length, the pollution amount and the list of connected edges' ID
-#inhibitedEdges is a list of the IDs og the inhibitedEdges
+#inhibitedEdges is a list of the IDs of the inhibited edges
 def findpath(edges, start, end, inhibitedEdges):
 	inhibitedEdges.sort()
 	dist = []
@@ -19,7 +19,7 @@ def findpath(edges, start, end, inhibitedEdges):
 		dist.append(-1)
 		prec.append(-1)
 	
-	dist[start]=(edges[start][0]*edges[start][1]);
+	dist[start]=(edges[start][0]*edges[start][1])
 	heapq.heappush(pq, [(edges[start][0]*edges[start][1]), start])
 	while(len(pq)>0):
 		front = heapq.heappop(pq)
@@ -32,11 +32,12 @@ def findpath(edges, start, end, inhibitedEdges):
 			finalList.append(u)
 			return rotate(finalList)
 		
-		if(d<=dist[u] or dist[u]==-1):
-			dist[u] = d
+		if(d<=dist[u]):
 			for nei in edges[u][2]:
 				i = bisect.bisect_left(inhibitedEdges,nei)
 				if (i>=len(inhibitedEdges) or inhibitedEdges[i]!=nei) and (dist[nei]==-1 or d+edges[nei][0]*edges[nei][1]<dist[nei]):
 					dist[nei] = d+edges[nei][0]*edges[nei][1]
 					prec[nei] = u
 					heapq.heappush(pq,[dist[nei], nei])
+				
+
